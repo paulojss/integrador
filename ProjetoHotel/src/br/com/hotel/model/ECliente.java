@@ -9,12 +9,11 @@ public class ECliente {
 	private String senha;
 	private String telefoneresid;
 	private String telefonecelular;
-	private String cidade;
-	private String rua;
-	private String quadra;
-	private String lote;
 	private String cep;
-	private String pais;
+	private String endereco;
+	private String estado;
+	private String cidade;
+	private String bairro;
 	
 	public String getCidade() {
 		return cidade;
@@ -24,28 +23,28 @@ public class ECliente {
 		this.cidade = cidade;
 	}
 
-	public String getRua() {
-		return rua;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setRua(String rua) {
-		this.rua = rua;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
-	public String getQuadra() {
-		return quadra;
+	public String getBairro() {
+		return bairro;
 	}
 
-	public void setQuadra(String quadra) {
-		this.quadra = quadra;
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
 	}
 
-	public String getLote() {
-		return lote;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setLote(String lote) {
-		this.lote = lote;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public String getCep() {
@@ -54,14 +53,6 @@ public class ECliente {
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
 	}
 
 	public ECliente(){

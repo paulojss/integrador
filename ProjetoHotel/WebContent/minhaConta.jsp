@@ -25,7 +25,7 @@
 
 	<!-- Dados Pessoais  -->
 	<section>
-		<form method="post" action="ClienteController">
+		<form name="form1" id="main" method="post">
 			<div class="jumbotron containerr">
 				<table>
 					<tr>
@@ -49,38 +49,38 @@
 					<tr>
 						<td>
 							<label for="telefoneresid">Telefone Residencial *</label>
-							<input class="campo" type="text" name="telefoneresid" id="campoTelefone" placeholder="Telefone Residencial" value='<c:out value="${usuario.telefoneresid}"></c:out>'/>
+							<input class="campo" type="text" name="telefoneresid" id="campoTelefone" placeholder="Telefone Residencial" onkeypress="MascaraTelefone(this)" maxlength="14" value='<c:out value="${usuario.telefoneresid}"></c:out>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label for="telefonecelular">Telefone Celular *</label>
-							<input type="text" name="telefonecelular" id="campoTelefone" placeholder="Telefone Celular" value='<c:out value="${usuario.telefonecelular}"></c:out>'/>
+							<input type="text" name="telefonecelular" id="campoTelefone" placeholder="Telefone Celular" onkeypress="MascaraCelular(this);" maxlength="15" value='<c:out value="${usuario.telefonecelular}"></c:out>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label for="cep">CEP</label>
-							<input type="text" name="cep" id="campoCEP" placeholder="Digite seu CEP" value='<c:out value="${usuario.cep}"></c:out>'/>
+							<input type="text" name="cep" placeholder="Digite seu CEP" id="cep" onkeypress="MascaraCep(this);" onblur="ValidaCep(this)" maxlength="10" value='<c:out value="${usuario.cep}"></c:out>'/>
 						</td>
 						<td>
-							<label id="lugarRua" for="rua">Rua</label>
-							<input type="text" name="rua" id="campoRua" placeholder="Digite sua rua" value='<c:out value="${usuario.rua}"></c:out>'/>
+							<label id="lugarEndereco" for="endereco">Endereço</label>
+							<input type="text" name="endereco" id="endereco" placeholder="Digite sua rua" value='<c:out value="${usuario.endereco}"></c:out>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label for="cidade">Cidade</label>
-							<input type="text" name="cidade" id="campoCidade" placeholder="Cidade" value='<c:out value="${usuario.cidade}"></c:out>'/>
+							<label for="estado">Estado</label>
+							<input type="text" name="estado" id="estado" placeholder="Estado" value='<c:out value="${usuario.estado}"></c:out>'/>
 						</td>
 						<td>
 							<td>
-								<label id="lugarQuadra" for="quadra">Quadra</label>
-								<input type="text" name="quadra" id="campoQuadra" placeholder="Quadra" value='<c:out value="${usuario.quadra}"></c:out>'/>
+								<label id="lugarCidade" for="cidade">Cidade</label>
+								<input type="text" name="cidade" id="cidade" placeholder="Cidade" value='<c:out value="${usuario.cidade}"></c:out>'/>
 							</td>
 							<td>	
-								<label id="lugarLote" for="lote">Lote</label>
-								<input type="text" name="lote" id="campoLote" placeholder="Digite seu Lote" value='<c:out value="${usuario.lote}"></c:out>'/>
+								<label id="lugarBairro" for="bairro">Bairro</label>
+								<input type="text" name="bairro" id="bairro" placeholder="Bairro" value='<c:out value="${usuario.bairro}"></c:out>'/>
 							</td>
 						</td>
 					</tr>	
@@ -221,5 +221,7 @@
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="js/jquery.parallax.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/mascaraValidacao.js"></script>
+	<script type="text/javascript" src="js/endereco.js"></script>
 </body>
 </html>

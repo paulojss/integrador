@@ -19,6 +19,8 @@
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/formulario.css" rel="stylesheet">
 	<link rel="shortcut icon" href="images/ico/hotelcomlogo.png">
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	
 </head>
 <body>
 	<div class="preloader">
@@ -90,7 +92,7 @@
 	<!--/#home-->
 
 
-	<!--formulario 122 a 293-->
+	<!--formulario 122 a 151-->
 	<form id="panel" name="frmRequestSmart" id="frmRequestSmart" action="">
 
 		<input type="hidden" name="Currency" value="EUR">
@@ -103,92 +105,48 @@
 
 		<div class="group-form" id="group-form-destination">
 
-
 			<div class="destinationRow" destid="1">
 				<div class="destination" style="width:100%; max-width:100%; min-width:100%;">
 					<label>Qual é o seu destino?</label>
-					<div class="auto-suggest-placeholder"><input type="text" name="Destination1Text" id="txtCity1" placeholder="Destino na cidade" value="" autocomplete="off"></div>
+					<div class="auto-suggest-placeholder">
+						<input type="text" name="Destination1Text" id="txtCity1" placeholder="Destino na cidade" value="" autocomplete="off" required>
+					</div>
 					<input type="hidden" name="Destination1" value="">
 				</div>
-
+				<li role="separator" class="divider"></li>
 				<div class="dates_container">
-					<input type="hidden" id="CheckInDate1" name="CheckInDate1" value="">
-					<input id="CheckInDate1_disp" name="CheckInDate1_disp" maxlength="10" type="text" class="datepicker dates" placeholder="Check-in"
-						autocomplete="on" dependentdate="CheckOutDate1" min-date="4/27/2017" max-date="4/27/2020" footerlabel="Check-in"> <input type="hidden" id="CheckOutDate1" name="CheckOutDate1" value="">
-						<input id="CheckOutDate1_disp" name="CheckOutDate1_disp" maxlength="10" type="text" class="datepicker dates last" placeholder="Check-out"
-							autocomplete="off" parentdate="CheckInDate1" min-date="4/27/2017" max-date="4/27/2020" footerlabel="Check-out">
+					<input id="txtCheckin" name="CheckIn" maxlength="10" type="text" class="datepicker dates" placeholder="Check-in"
+					autocomplete="on" dependentdate="CheckOutDate1" footerlabel="Check-in" required> 
+						
+					<input id="txtCheckout" name="CheckOut" maxlength="10" type="text" class="datepicker dates last" placeholder="Check-out"
+					autocomplete="off" parentdate="CheckInDate1" footerlabel="Check-out" required>
 				</div>
-
-			</div>
-
-		</div>
-
-
-		<div class="group-form groupTypeRow">
-
-
-			<label>Tipo de grupo</label>
-			<div class="custom-select" required-message="Especifique o seu tipo de grupo" required>
-				<select name="GroupType" id="groupType">
-
-				</select>
 			</div>
 
 		</div>
 
 		<div class="group-form column-left">
-			<label>Número de quartos por noite</label>
-			<i class="fa fa-question hint--left hint--info hint--rounded" modal-content-id="RoomsHelpPopup" data-hint="Este valor deve ser o mais exacto possível. Alguns hotéis requerem que utilize uma percentagem do seu bloco de quartos.
- seu grupo acabar por utilizar mais quartos, a maioria dos hotéis irão honrar o seu preço de quarto de grupo com desconto para os quartos adicionais que excedam o número de quartos do bloco."></i>
-				<input type="number" min="1" step="1" id="rooms" name="Rooms" maxlength="4" value="" autocomplete="off" class="rooms" placeholder="estimativa máxima"
-					required-message="Especifique o número de quartos" required />
+			<label>Quartos</label>
+				<input class="tamanhoQuartos" type="number" min="1" max="10" step="1" id="" name="" value="" placeholder="Nº quartos"
+				required-message="Especifique o número de quartos" required />
+		</div>
+
+		<div class="group-form column-left">
+			<label for="aldutos">Adultos</label>
+			<input type="number" name="aldutos" value="" min="1" max="10" step="1" placeholder="Nº de Adultos"
+			required required-message="Espeficique o quantidade de Adultos">
+		</div>
+
+		<div class="group-form column-left">
+			<label for="criancas">Crianças</label>
+			<input type="number" name="criancas" value="" min="0" max="10" step="1" placeholder="Nº de Crianças"
+			required-message="Especifique a quantidade de crianças">
 		</div>
 
 		<div class="clear"></div>
 
 
-		<div id="SpaceOnlyLink" class="Rooms-Notes"><i class="fa fa-question-circle"></i> <a href="Search/Meeting-Space.html">Precisa apenas de espaço para reunião?</a></div>
-
-
-		<div class="group-form fade-in-after-engagement" id="group-form-quotes">
-			<label for="FullName">Para onde devemos enviar as propostas?</label><i class="fa fa-question" data-hint="Deve indicar um endereço de e-mail válido para lhe podermos dar preços privados específicos para as suas necessidades. Não partilharemos a sua informação de contacto com qualquer empresa terceira sem a sua permissão."></i>
-			<span class="labelforoldbrowser">Nome completo</span>
-			<input type="hidden" name="FirstName" value="" placeholder="First Name" id="input-firstname" />
-			<input type="hidden" name="LastName" value="" placeholder="Last Name" id="input-lastname" />
-			<input type="text" autocomplete="name" name="FullName" id="FullName" maxlength="100" value="" placeholder="Nome completo"
-				required-message="Indique o seu nome completo" required />
-		</div>
-
-		<div class="group-form fade-in-after-engagement" id="group-form-email">
-			<span id="email_error_message" class="errorMsg">Verifique se introduziu corretamente o seu endereço de e-mail. Poderá existir um erro.</span>
-			<span class="labelforoldbrowser">E-mail</span>
-			<input type="text" name="Email" id="input-email" maxlength="128" value="" autocomplete="email" placeholder="E-mail" title="(deve ser um e-mail real)"
-				required-message="Indique um endereço de e-mail válido" required />
-		</div>
-
-		<div id="PasswordBox" style="display:none">
-			<div class="group-form">
-				<label>Palavra-passe</label>
-				<input type="Password" autocomplete="off" name="Password" maxlength="30" value="" placeholder="Palavra-passe" />
-			</div>
-
-			<div class="group-form">
-				<span class="note errorMsg">Vemos que já tem uma conta, introduza a sua palavra-passe acima. <a href="ForgotLogin.html" target="_blank">Esqueceu a sua palavra-passe?</a></span>
-			</div>
-
-			<input type="hidden" name="ForcePassword" value="hoteis214627">
-		</div>
-
-		<button type="button" class="Submit" name="step1">Buscar <i class="fa fa-arrow-right"></i></button>
-
-
-		<!--<p id="disclaimerHCOM">
-
-			<input type="hidden" name="verifyTermsHCOM" value="1">
-			<input type="checkbox" name="chkTermsHCOM" id="chkTermsHCOM" value="1">
-			<span class="lightgray-disclaimer">Ao clicar em "Enviar", declara aceitar os nossos <a href="Terms.html" target="_blank">Termos e Condições de Reservas para Grupos</a>, <a href="http://www.hoteis.com/customer_care/terms_conditions.html" target="_blank">os Termos e Condições do nosso Website</a> e <a href="http://www.hoteis.com/customer_care/privacy.html" target="_blank">a Política de Privacidade</a>.</span>
-		</p>-->
-
+		<button type="submit" class="Submit" name="step1">Buscar <i class="fa fa-arrow-right"></i></button>
 	</form>
 	<!--formulario-->
 
@@ -740,5 +698,8 @@
 	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
 	<script type="text/javascript" src="js/jquery.parallax.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/dataCheckinCheckout.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 </body>
 </html>

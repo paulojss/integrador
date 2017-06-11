@@ -78,9 +78,9 @@ public class PCliente {
 				cliente.setTelefonecelular(rs.getString("telefonecelular"));
 				cliente.setTelefoneresid(rs.getString("telefoneresid"));
 				cliente.setCidade(rs.getString("cidade"));
-				cliente.setRua(rs.getString("rua"));
-				cliente.setQuadra(rs.getString("quadra"));
-				cliente.setLote(rs.getString("lote"));
+				cliente.setEndereco(rs.getString("endereco"));
+				cliente.setEstado(rs.getString("estado"));
+				cliente.setBairro(rs.getString("bairro"));
 				cliente.setCep(rs.getString("cep"));
 		}
 		System.out.println("Entrei no consultar");
@@ -89,7 +89,7 @@ public class PCliente {
 	
 	public void alterarDadosPessoais(ECliente objeto){
 		
-		String sql = "UPDATE cliente SET nome=?, sobrenome=?, telefoneresid=?, telefonecelular=?, cidade=?, rua=?, quadra=?, lote=?, cep=? WHERE codcliente=?";
+		String sql = "UPDATE cliente SET nome=?, sobrenome=?, telefoneresid=?, telefonecelular=?, cidade=?, endereco=?, estado=?, bairro=?, cep=? WHERE codcliente=?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -98,9 +98,9 @@ public class PCliente {
 			ps.setString(3, objeto.getTelefoneresid());
 			ps.setString(4, objeto.getTelefonecelular());
 			ps.setString(5, objeto.getCidade());
-			ps.setString(6, objeto.getRua());
-			ps.setString(7, objeto.getQuadra());
-			ps.setString(8, objeto.getLote());
+			ps.setString(6, objeto.getEndereco());
+			ps.setString(7, objeto.getEstado());
+			ps.setString(8, objeto.getBairro());
 			ps.setString(9, objeto.getCep());
 			ps.setLong  (10, objeto.getCodcliente());
 			ps.execute();
@@ -200,9 +200,9 @@ public class PCliente {
 				c.setTelefonecelular(rs.getString("telefonecelular"));
 				c.setSobrenome(rs.getString("sobrenome"));
 				c.setCidade(rs.getString("cidade"));
-				c.setRua(rs.getString("rua"));
-				c.setQuadra(rs.getString("quadra"));
-				c.setLote(rs.getString("lote"));
+				c.setEndereco(rs.getString("endereco"));
+				c.setEstado(rs.getString("estado"));
+				c.setBairro(rs.getString("bairro"));
 				c.setCep(rs.getString("cep"));
 				list.add(c);
 			}//fim do while

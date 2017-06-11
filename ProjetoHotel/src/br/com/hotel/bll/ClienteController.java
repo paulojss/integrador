@@ -60,7 +60,7 @@ public class ClienteController extends HttpServlet {
 			try {
 				String email = cliente.getEmail();
 				if(persistencia.verificarEmail(email)){
-					request.setAttribute("error", "Nï¿½o foi possï¿½vel inscrevï¿½-lo porque jï¿½ existe uma conta para este endereï¿½o de e-mail");
+					request.setAttribute("error", "Não foi possível inscreve-lo porque já existe uma conta para este endereço de e-mail");
 					forward = CADASTRARUSUARIO;
 				}else{
 					persistencia.inserir(cliente);
@@ -84,9 +84,9 @@ public class ClienteController extends HttpServlet {
 			cliente.setTelefoneresid(request.getParameter("telefoneresid"));
 			cliente.setTelefonecelular(request.getParameter("telefonecelular"));
 			cliente.setCidade(request.getParameter("cidade"));
-			cliente.setRua(request.getParameter("rua"));
-			cliente.setQuadra(request.getParameter("quadra"));
-			cliente.setLote(request.getParameter("lote"));
+			cliente.setEndereco(request.getParameter("endereco"));
+			cliente.setCidade(request.getParameter("cidade"));
+			cliente.setBairro(request.getParameter("bairro"));
 			cliente.setCep(request.getParameter("cep"));
 			persistencia.alterarDadosPessoais(cliente);
 			sessao.setAttribute("usuario", cliente);
@@ -102,7 +102,7 @@ public class ClienteController extends HttpServlet {
 			
 			try {
 				if(persistencia.verificarEmail(email)){
-					request.setAttribute("error", "Nï¿½o foi possï¿½vel inscrevï¿½-lo porque jï¿½ existe uma conta para este endereï¿½o de e-mail");
+					request.setAttribute("error", "Não foi possível inscreve-lo porque já existe uma conta para este endereço de e-mail");
 				}else{
 					if(persistencia.verificarUsuario(cliente)){
 						request.setAttribute("emailalterado", "Email alterado com sucesso!");
